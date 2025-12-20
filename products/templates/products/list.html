@@ -1,0 +1,46 @@
+{% extends "layout.html" %} {% block content %}
+<h1 class="mb-4">Films</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Title</th>
+      <th scope="col">Genre</th>
+      <th scope="col">Mark</th>
+      <th scope="col">Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for f in films %}
+    <tr class="align-middle">
+      <th scope="row">{{ f.pk }}</th>
+      <td><img class="rounded" src="{{ f.image_url }}" alt="{{ f.title }}" style="width: 50px; height: 50px; object-fit: cover;"></td>
+      <td>{{ f.title }}</td>
+      <td>{{ f.get_genre_display }}</td>
+      <td>${{ f.mark }}</td>
+      <!-- <td>
+        {% if product.stock > 10 %}
+        <span class="badge text-bg-success">{{ product.stock }}</span>
+        {% elif product.stock > 0 %}
+        <span class="badge text-bg-warning">{{ product.stock }}</span>
+        {% else %}
+        <span class="badge text-bg-danger">{{ product.stock }}</span>
+        {% endif %}
+      </td> -->
+      <td>{{ f.year }}</td>
+      <td>
+        <a class="btn btn-sm text-bg-danger" href="/films/delete/{{f.pk}}">Delete</a>
+      </td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="7" class="text-center">No films available</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
