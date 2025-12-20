@@ -2,6 +2,8 @@ from django.shortcuts import render
 
 from products.models import Film
 
+import home
+
 # Create your views here.
 def list_of_films(request):
     films = Film.objects.all()
