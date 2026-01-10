@@ -7,7 +7,7 @@ class FilmForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Product name'}),
-            'image_url': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Image URL'}),
+            'image': forms.ClearableFileInput(attrs={'class': 'form-control'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'placeholder': 'Description'}),
             'mark': forms.NumberInput(attrs={'class': 'form-control', 'step': '0.1', 'placeholder': 'Mark'}),
             'year': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Year'}),

@@ -4,7 +4,23 @@ from django.db import models
 class Film(models.Model):
     GENRE_CHOICES = [
     ('action', 'Action'),
-    ('fantasy', 'Fantasy')]
+    ('fantasy', 'Fantasy'),
+    ('comedy', 'Comedy'),
+    ('drama', 'Drama'),
+    ('horror', 'Horror'),
+    ('sci-fi', 'Sci-Fi'),
+    ('romance', 'Romance'),
+    ('thriller', 'Thriller'),
+    ('documentary', 'Documentary'),
+    ('animation', 'Animation'),
+    ('adventure', 'Adventure'),
+    ('mystery', 'Mystery'),
+    ('crime', 'Crime'),
+    ('musical', 'Musical'),
+    ('biography', 'Biography'),
+    ('war', 'War'),
+    ('western', 'Western'),
+    ]
 
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='films_images/', null=True, blank=True)

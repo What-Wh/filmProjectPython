@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
 from products.forms.film import FilmForm
 
@@ -18,6 +19,7 @@ def deleteProduct(request, id):
     film = Film.objects.get(pk=id)
     film.delete()
     films = Film.objects.all()
+    messages.error(request, f"Film has been deleted successfully!")
     return render(request, 'products/list.html', {'films': films})
 
 def create_film(request):
@@ -25,6 +27,7 @@ def create_film(request):
         film_form = FilmForm(request.POST, request.FILES)
         if film_form.is_valid():
             film_form.save()
+            messages.success(request, f"Film has been created successfully!")
             return redirect('film_list')
     film_form = FilmForm()
     return render(request, 'products/createPage.html', {'form': film_form})
@@ -35,6 +38,7 @@ def update_film(request, id):
         film_form = FilmForm(request.POST, request.FILES, instance=film)
         if film_form.is_valid():
             film_form.save()
+            messages.success(request, f"Film has been updated successfully!")
             return redirect('film_list')
     film_form = FilmForm(instance=film)
     return render(request, 'products/updatePage.html', {'form': film_form})
