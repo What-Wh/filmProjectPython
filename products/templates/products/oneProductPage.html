@@ -2,11 +2,13 @@
 <div class="row w-100 align-items-center">
     <!-- Poster -->
     <div class="col-12 col-md-5 d-flex justify-content-center mb-4 mb-md-0">
+        
         <img
-            src="{{film.image_url}}"
-            class="img-fluid rounded shadow"
-            alt="Movie Poster"
-            style="max-width: 400px;"
+          class="rounded"
+          src="{% if film.image %}{{ film.image.url }}{% elif film.image_url %}{{ film.image_url }}{% else %}https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-picture-coming-creative-vector-png-image_40968940.jpg{% endif %}"
+          alt="{{ f.title }}"
+          class="img-fluid rounded shadow"
+          style="max-width: 400px;"
         />
     </div>
 

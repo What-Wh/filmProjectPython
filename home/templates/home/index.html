@@ -6,9 +6,10 @@
   <div class="col-12 col-sm-6 col-lg-4">
     <div class="card h-100 shadow-sm">
       <img
-        src="{{f.image_url}}"
-        class="card-img-top"
-        alt="Movie Poster"
+          class="rounded"
+          src="{% if f.image %}{{ f.image.url }}{% elif f.image_url %}{{ f.image_url }}{% else %}https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-picture-coming-creative-vector-png-image_40968940.jpg{% endif %}"
+          alt="{{ f.title }}"
+          class="card-img-top"
       />
       <div class="card-body d-flex flex-column">
         <h5 class="card-title">{{f.title}}</h5>

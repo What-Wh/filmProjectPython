@@ -19,7 +19,14 @@
     {% for f in films %}
     <tr class="align-middle">
       <th scope="row">{{ f.pk }}</th>
-      <td><img class="rounded" src="{{ f.image_url }}" alt="{{ f.title }}" style="width: 50px; height: 50px; object-fit: cover;"></td>
+      <td>
+        <img
+          class="rounded"
+          src="{% if f.image %}{{ f.image.url }}{% elif f.image_url %}{{ f.image_url }}{% else %}https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-picture-coming-creative-vector-png-image_40968940.jpg{% endif %}"
+          alt="{{ f.title }}"
+          style="width: 50px; height: 50px; object-fit: cover"
+        />
+      </td>
       <td>{{ f.title }}</td>
       <td>{{ f.get_genre_display }}</td>
       <td>⭐{{ f.mark }}</td>

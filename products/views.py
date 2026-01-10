@@ -22,7 +22,7 @@ def deleteProduct(request, id):
 
 def create_film(request):
     if request.method == 'POST':
-        film_form = FilmForm(request.POST)
+        film_form = FilmForm(request.POST, request.FILES)
         if film_form.is_valid():
             film_form.save()
             return redirect('film_list')
@@ -32,7 +32,7 @@ def create_film(request):
 def update_film(request, id):
     film = get_object_or_404(Film, pk=id)
     if request.method == 'POST':
-        film_form = FilmForm(request.POST, instance=film)
+        film_form = FilmForm(request.POST, request.FILES, instance=film)
         if film_form.is_valid():
             film_form.save()
             return redirect('film_list')

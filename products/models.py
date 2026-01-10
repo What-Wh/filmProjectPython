@@ -7,7 +7,8 @@ class Film(models.Model):
     ('fantasy', 'Fantasy')]
 
     title = models.CharField(max_length=100)
-    image_url = models.URLField()
+    image = models.ImageField(upload_to='films_images/', null=True, blank=True)
+    image_url = models.URLField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     mark = models.IntegerField()
     year = models.IntegerField()
