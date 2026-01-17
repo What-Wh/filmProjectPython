@@ -9,7 +9,7 @@ def index(request, filter_by_favorites=False):
     films = Film.objects.all()
     if filter_by_favorites:
         fav_ids = get_favorites_films(request)
-        films = films.filter(id_in=fav_ids)
+        films = films.filter(id__in=fav_ids)
     
     return render(request, 'home/index.html', {
         'films': films, 
