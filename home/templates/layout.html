@@ -40,17 +40,16 @@
               >
             </li>
           </ul>
-          <form class="d-flex" role="search">
+          <form class="d-flex" role="search" method="get" action="{% url 'index' %}">
             <input
               class="form-control me-2"
               type="search"
               placeholder="Search"
-              aria-label="Search"
-              
+              name="filter_text"
             />
-            <a class="btn btn-outline-success" type="submit" >
+            <button class="btn btn-outline-success" type="submit">
               Search
-            </a>
+            </button>
           </form>
         </div>
       </div>
