@@ -13,6 +13,5 @@ def index(request, filter_by_favorites=False):
     
     return render(request, 'home/index.html', {
         'films': films, 
-        "fav_count": get_count_of_favorite_films(request),
         "fav_ids": get_favorites_films(request),
     })
