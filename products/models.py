@@ -24,6 +24,7 @@ class Film(models.Model):
 
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='films_images/', null=True, blank=True)
+    video = models.FileField(upload_to='films_videos/', null=True, blank=True)
     description = models.TextField(blank=True, null=True)
     mark = models.IntegerField()
     year = models.IntegerField()
